@@ -36,6 +36,12 @@ class PrototypesController < ApplicationController
       render :edit
     end
   end
+  
+  def destroy
+    prototype = Prototype.find(params[:id])
+    prototype.destroy
+    redirect_to root_path
+  end
 
   private  #Class外から呼び出し不可のメソッド/誤呼出防止/可読性向上
 

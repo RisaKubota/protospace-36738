@@ -4,12 +4,12 @@
       <p class="prototype__hedding">
         <%= "#{ @prototype.title }"%>
       </p>
-      <%= link_to "by #{ @prototype.user.name }", prototype_path(@prototype.id) , class: :prototype__user %>
+      <%= link_to "by #{ @prototype.user.name }", prototype_path , class: :prototype__user %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
         <div class="prototype__manage">
           <% if user_signed_in? && current_user.id == @prototype.user.id %>
           <%= link_to "編集する", edit_prototype_path, class: :prototype__btn %>
-          <%= link_to "削除する", root_path, class: :prototype__btn %>
+          <%= link_to "削除する", "/prototypes/#{@prototype.id}", method: :delete, class: :prototype__btn %>
           <% end %>
         </div>
       <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
