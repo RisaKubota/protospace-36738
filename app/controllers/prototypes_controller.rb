@@ -20,6 +20,10 @@ class PrototypesController < ApplicationController
     end
   end
 
+  def show
+    @prototype = Prototype.find(params[:id])
+  end
+
   private  #Class外から呼び出し不可のメソッド/誤呼出防止/可読性向上
 
   def prototype_params
