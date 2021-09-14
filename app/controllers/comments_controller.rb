@@ -10,10 +10,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  def show
-    @comments = Comment.all
-  end
-
   private
 
   def comment_params
