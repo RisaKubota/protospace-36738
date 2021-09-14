@@ -11,6 +11,7 @@ class PrototypesController < ApplicationController
   def create
     #Prototype.create(prototype_params)
     #createメソッド：引数に渡されたデータを元にモデルのインスタンスを生成し、データベースに保存
+
     @prototype = Prototype.new(prototype_params)
     # new.html.erbでインスタンスを渡す必要があるため、newアクションと同じ変数にする
     if @prototype.save
@@ -22,6 +23,8 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype = Prototype.find(params[:id])
+    @comment = Comment.new #インスタンスに新規オブジェクトを代入
+    @comments = @prototype.comments
   end
 
   def edit
