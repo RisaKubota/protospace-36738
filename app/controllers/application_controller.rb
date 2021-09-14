@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  # before_action :authenticate_user!, only: [:new, :edit,:destroy]
+  before_action :authenticate_user!, only: [:new, :edit,:destroy]
   #authenticate_user!:ログインしていなければログイン画面に遷移する
   #only or except を使用し特定のアクションのみ指定することが可能
 
