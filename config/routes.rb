@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     #ルーティングのネスト(do~end)を使いルーティングの親子関係を示すことでidを渡すことができる。
     #ルーティングのネスト：親のidをparamsに追加して子供側に受け渡しを行う
   end
+
+  resources :users, only: [:show]
 end
