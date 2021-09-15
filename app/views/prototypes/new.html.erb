@@ -3,6 +3,8 @@
     <div class="form__wrapper">
       <h2 class="page-heading">新規プロトタイプ投稿</h2>
         <%# 部分テンプレートでフォームを表示する %>
+        <%= render partial: "form", locals: { prototype: @prototype } %>
+        <%# localsで指定した値を変数として使用できる.@prptptypeはコントローラーで生成したインスタンス %>
     </div>
   </div>
 </div>
