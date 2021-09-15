@@ -2,10 +2,11 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params) #ストロングパラメーターを引数にしている
+    @prototype = Prototype.find(params[:prototype_id])
     if @comment.save
       redirect_to "/prototypes/#{@comment.prototype.id}" #commentとprototypeを.で繋ぐ
     else
-      @prototype = @comment.prototype #commentとprototypeを.で繋ぐ
+      @comments = @prototype.comments #commentとprototypeを.で繋ぐ
       render "prototypes/show"
     end
   end

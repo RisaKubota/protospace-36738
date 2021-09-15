@@ -29,7 +29,7 @@ class PrototypesController < ApplicationController
 
   def edit
     @prototype = Prototype.find(params[:id])
-    unless user_signed_in? == current_user
+    unless user_signed_in? == current_user.id
       redirect_to root_path
     end
   end
@@ -58,3 +58,6 @@ class PrototypesController < ApplicationController
   end
 
 end
+
+# 編集・更新・削除のアクション時
+# ログインしているユーザーがプロトタイプの投稿者と同じじゃない場合、トップページに戻す
